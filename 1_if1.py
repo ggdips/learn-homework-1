@@ -16,13 +16,14 @@
 """
 
 def check_user(age):
-    if int(age) < 7:
+    age = int(age)
+    if age < 7:
         return "Вы должны учиться в детском саду"
-    elif 7 <= int(age) < 17:
+    elif 7 <= age < 17:
         return "Вы должны учиться в школе"
-    elif 17 <= int(age) < 23:
+    elif 17 <= age < 23:
         return "Вы должны учиться в ВУЗе"
-    elif 23 <= int(age):
+    elif 23 <= age:
         return "Вы должны работать"
     
 
@@ -30,7 +31,7 @@ def check_user(age):
 def main():
     user_age = input("Введите ваш возраст: ")
     answer = check_user(user_age)
-    print(f"{answer}")
+    print(answer)
 
 if __name__ == "__main__":
     main()

@@ -30,8 +30,9 @@ def ask_user(answers_dict):
         question = input("Введите Вопрос, для выхода введите Выход ")
         if question == "Выход":
             break
-        if questions_and_answers.get(question):
-            print(f'{questions_and_answers.get(question)}')
+        answ = questions_and_answers.get(question)
+        if answ != None:
+            print(answ)
 
 if __name__ == "__main__":
     ask_user(questions_and_answers)

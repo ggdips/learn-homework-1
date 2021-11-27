@@ -31,20 +31,8 @@ def where_is_planet(update, context):
     logging.info('Вызван /planet')
     planet = update.message.text.split()[1]
     constellation = ephem.constellation
-    if planet == "Mercury":
-        constellation  = ephem.constellation(ephem.Mercury(date.today()))
-    if planet == "Venus":
-        constellation  = ephem.constellation(ephem.Venus(date.today()))
-    if planet == "Mars":
-        constellation  = ephem.constellation(ephem.Mars(date.today()))
-    if planet == "Jupiter":
-        constellation  = ephem.constellation(ephem.Jupiter(date.today()))
-    if planet == "Saturn":
-        constellation  = ephem.constellation(ephem.Saturn(date.today()))
-    if planet == "Uranus":
-        constellation  = ephem.constellation(ephem.Uranus(date.today()))
-    if planet == "Neptune":
-        constellation  = ephem.constellation(ephem.Neptune(date.today()))
+    p = getattr(ephem, planet)
+    constellation = ephem.constellation(p(date.today()))
     update.message.reply_text(f'{planet} in {constellation[1]}')
 
 def main():

@@ -17,7 +17,7 @@
 """
 
 def str_compare(str1,str2):
-    if not (type(str1) == str and type(str2) == str):
+    if not (isinstance(str1, str) and isinstance(str2, str)):
         return 0
     elif str1 == str2:
         return 1
