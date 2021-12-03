@@ -1,3 +1,4 @@
+#!/usr/bin/python3.8
 """
 
 Домашнее задание №1
@@ -13,11 +14,25 @@
     
 """
 
-def discounted(price, discount, max_discount=20)
-    """
-    Замените pass на ваш код
-    """
-    pass
+def discounted(price, discount, max_discount=20):
+    try:
+        price = float(price)
+        discount = float(discount)
+    except(ValueError, TypeError):
+        print("Переданы некорректные значения цены/скидки")
+        return
+    try:
+        max_discount = int(max_discount)
+    except(ValueError, TypeError):
+        print("Передано некорректное значение максимальной скидки")
+        return
+    if max_discount >= 100:
+        raise ValueError("Слишком большая максимальная скидка")
+    if discount >= max_discount:
+        return price
+    else:
+        return price - (price * discount / 100)
+
     
 if __name__ == "__main__":
     print(discounted(100, 2))
